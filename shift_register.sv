@@ -21,6 +21,8 @@ parameter WIDTH = 4
       out_d = out_q; // default value
       case (funct_i)
         NA: out_d = out_q;
+        LOAD:  out_d = word_i;
+        LEFT: out_d = {out_q[WIDTH-2:0], serial_i};
         RIGHT: out_d = {serial_i, out_q[WIDTH-1:1]};
     endcase
   end
